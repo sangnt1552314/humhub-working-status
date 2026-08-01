@@ -1,42 +1,39 @@
 <?php
 
+use humhub\modules\workingStatus\models\WorkingStatusType;
 use humhub\modules\workingStatus\widgets\ConfigMenu;
+use humhub\widgets\modal\ModalButton;
 
+/* @var $this \humhub\components\View */
+/* @var $statusTypes WorkingStatusType[] */
 ?>
 
 <div class="panel panel-default">
     <div class="panel-heading"><strong>Working Status</strong> configuration</div>
 
-    <?= ConfigMenu::widget() ?>   <!-- renders the tab bar -->
+    <?= ConfigMenu::widget() ?>
 
     <div class="panel-body">
         <div class="clearfix">
+            <h4>
+                Status Types
+                <?= ModalButton::success('Create new type')
+                    ->load(['/working-status/config/edit-type'])
+                    ->icon('fa-plus')
+                    ->right() ?>
+            </h4>
             <div class="form-text">
                 <?= Yii::t('WorkingStatusModule.config', 'Here you can manage and disable different kind of working status.') ?>
             </div>
         </div>
         <br>
-        
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Color</th>
-                    <th>Name</th>
-                    <th>Sort Order</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($statusTypes as $type): ?>
-                    <tr>
-                        <td>
-                            <span style="display:inline-block; width:20px; height:20px; border-radius:50%; background-color:<?= \yii\helpers\Html::encode($type->color) ?>"></span>
-                        </td>
-                        <td><?= \yii\helpers\Html::encode($type->name) ?></td>
-                        <td><?= \yii\helpers\Html::encode($type->sort_order) ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-
+        <div>
+            <?php foreach ($statusTypes as $type): ?>
+                <?= $this->render('_statusTypeItem', ['model' => $type]) ?>
+            <?php endforeach; ?>
+            <?php if (empty($statusTypes)): ?>
+                <p class="text-muted">No status types found.</p>
+            <?php endif; ?>
+        </div>
     </div>
 </div>
