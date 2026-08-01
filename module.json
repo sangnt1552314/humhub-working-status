@@ -1,0 +1,9 @@
+{
+    "id": "working-status",
+    "name": "Working Status",
+    "description": "This module allows users to set their working status (e.g., Working, On Vacation, Sick, etc.) and display it in their profile and activity stream.",
+    "version": "1.0.0",
+    "humhub": {
+        "minVersion": "1.14" 
+    }
+}
