@@ -1,7 +1,6 @@
 <?php
 
 use humhub\modules\workingStatus\models\WorkingStatusType;
-use humhub\modules\workingStatus\widgets\ConfigMenu;
 use humhub\widgets\modal\ModalButton;
 
 /* @var $this \humhub\components\View */
@@ -10,8 +9,6 @@ use humhub\widgets\modal\ModalButton;
 
 <div class="panel panel-default">
     <div class="panel-heading"><strong>Working Status</strong> configuration</div>
-
-    <?= ConfigMenu::widget() ?>
 
     <div class="panel-body">
         <div class="clearfix">

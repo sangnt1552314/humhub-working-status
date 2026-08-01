@@ -36,18 +36,6 @@ class ConfigController extends Controller
         return $this->renderAjax('editModal', ['model' => $model]);
     }
 
-    public function actionCreate()
-    {
-        $model = new WorkingStatusType();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $this->view->saved();
-            return $this->redirect(['/working-status/config/index']);
-        }
-
-        return $this->render('create', ['model' => $model]);
-    }
-
     public function actionDeleteType($id)
     {
         $this->forcePostRequest();
