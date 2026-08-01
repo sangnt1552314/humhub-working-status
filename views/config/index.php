@@ -24,13 +24,26 @@ use humhub\widgets\modal\ModalButton;
             </div>
         </div>
         <br>
-        <div>
-            <?php foreach ($statusTypes as $type): ?>
-                <?= $this->render('_statusTypeItem', ['model' => $type]) ?>
-            <?php endforeach; ?>
-            <?php if (empty($statusTypes)): ?>
-                <p class="text-muted">No status types found.</p>
-            <?php endif; ?>
-        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th style="width:40px;"><?= Yii::t('WorkingStatusModule.base', 'Color') ?></th>
+                    <th><?= Yii::t('WorkingStatusModule.base', 'Name') ?></th>
+                    <th style="width:100px;"><?= Yii::t('WorkingStatusModule.base', 'Order') ?></th>
+                    <th style="width:100px;"><?= Yii::t('WorkingStatusModule.base', 'Actions') ?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if (empty($statusTypes)): ?>
+                    <tr>
+                        <td colspan="4" class="text-muted text-center">No status types found.</td>
+                    </tr>
+                <?php else: ?>
+                    <?php foreach ($statusTypes as $type): ?>
+                        <?= $this->render('_statusTypeItem', ['model' => $type]) ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </tbody>
+        </table>
     </div>
 </div>

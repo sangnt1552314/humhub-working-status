@@ -6,14 +6,13 @@ use yii\helpers\Html;
 
 /* @var $model WorkingStatusType */
 ?>
-<div class="input-group mt-2">
-    <span class="input-group-text">
-        <i style="display:inline-block;width:16px;height:16px;border-radius:3px;background-color:<?= Html::encode($model->color) ?>"></i>
-    </span>
-    <span class="input-group-text flex-fill">
-        <?= Html::encode($model->name) ?>
-    </span>
-    <span class="input-group-text">
+<tr>
+    <td>
+        <i style="display:inline-block;width:20px;height:20px;border-radius:3px;background-color:<?= Html::encode($model->color) ?>"></i>
+    </td>
+    <td><?= Html::encode($model->name) ?></td>
+    <td><?= Html::encode($model->sort_order) ?></td>
+    <td>
         <?= ModalButton::primary()
             ->load(['/working-status/config/edit-type', 'id' => $model->id])
             ->icon('fa-pencil')
@@ -28,5 +27,5 @@ use yii\helpers\Html;
             ->icon('fa-times')
             ->sm()
             ->cssClass('ms-2') ?>
-    </span>
-</div>
+    </td>
+</tr>
