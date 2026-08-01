@@ -10,13 +10,13 @@ class ConfigMenu extends SettingsTabs
     {
         $this->items = [
             [
-                'label' => Yii::t('WorkingStatusModule.base', 'Status Types'),
+                'label' => Yii::t('WorkingStatusModule.base', 'Working Status Types'),
                 'url' => ['/working-status/config/index'],
                 'active' => $this->isCurrentRoute('working-status', 'config', 'index'),
                 'sortOrder' => 10,
             ],
             [
-                'label' => Yii::t('WorkingStatusModule.base', 'Create Status'),
+                'label' => Yii::t('WorkingStatusModule.base', 'Create Working Status'),
                 'url' => ['/working-status/config/create'],
                 'active' => $this->isCurrentRoute('working-status', 'config', 'create'),
                 'sortOrder' => 20,

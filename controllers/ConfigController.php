@@ -2,14 +2,17 @@
 namespace humhub\modules\workingStatus\controllers;
 
 use humhub\modules\admin\components\Controller;
-use Yii;
+use humhub\modules\workingStatus\services\WorkingStatusService;
 
 class ConfigController extends Controller
 {
     public function actionIndex()
     {
-        // list existing status types
-        return $this->render('index');
+        $service = new WorkingStatusService();
+
+        return $this->render('index', [
+            'statusTypes' => $service->getAllWorkingStatusTypes(),
+        ]);
     }
 
     public function actionCreate()
